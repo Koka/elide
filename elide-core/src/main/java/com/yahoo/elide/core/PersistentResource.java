@@ -1460,7 +1460,7 @@ public class PersistentResource<T> implements com.yahoo.elide.security.Persisten
         Collection<Method> methods = dictionary.getTriggers(targetClass, annotationClass, fieldName);
         for (Method method : methods) {
             try {
-                method.invoke(obj);
+                method.invoke(obj, requestScope);
             } catch (ReflectiveOperationException e) {
                 throw new IllegalArgumentException(e);
             }
